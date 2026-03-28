@@ -1,203 +1,239 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Calculadora Visa Canadá</title>
+<meta charset="UTF-8">
+<title>Calculadora Visa Canadá</title>
+
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fb;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-top: 15px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.thermometer {
+  margin-top: 25px;
+}
+
+.bar-bg {
+  width: 100%;
+  height: 20px;
+  background: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 20px;
+  transition: width 1s ease;
+}
+
+.low { background: #ff4d4d; }
+.mid { background: #ffb84d; }
+.high { background: #4CAF50; }
+
+.result-text {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.cta {
+  margin-top: 25px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.cta a {
+  display: block;
+  margin-top: 10px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+}
+
+.whatsapp { background: #25D366; }
+.plan { background: black; }
+.clarity { background: #555; }
+
+</style>
 </head>
-<body style="font-family: Arial; max-width:600px; margin:auto;">
 
-<h2>Calcula tu probabilidad de aprobación 🇨🇦</h2>
+<body>
 
-<form id="visaForm">
+<div class="container">
 
-  <label>Situación laboral:</label><br>
-  <select id="job">
-    <option value="25">Empleado estable</option>
-    <option value="18">Empleado reciente</option>
-    <option value="20">Independiente</option>
-    <option value="15">Estudiante</option>
-    <option value="5">Desempleado</option>
-  </select><br><br>
+<h1>¿Te aprobarían la visa a Canadá? 🇨🇦</h1>
+<p class="subtitle">Descúbrelo en 2 minutos antes de aplicar</p>
 
-  <label>Ingresos:</label><br>
-  <select id="income">
-    <option value="20">+2000 USD</option>
-    <option value="15">1000-2000 USD</option>
-    <option value="10">500-1000 USD</option>
-    <option value="5">-500 USD</option>
-  </select><br><br>
+<label>Situación laboral</label>
+<select id="job">
+<option value="25">Empleado estable</option>
+<option value="18">Empleado reciente</option>
+<option value="20">Independiente</option>
+<option value="15">Estudiante</option>
+<option value="5">Desempleado</option>
+</select>
 
-  <label>Ahorros:</label><br>
-  <select id="savings">
-    <option value="20">+10000 USD</option>
-    <option value="15">5000-10000 USD</option>
-    <option value="10">2000-5000 USD</option>
-    <option value="5">-2000 USD</option>
-  </select><br><br>
+<label>Ingresos</label>
+<select id="income">
+<option value="20">+2000 USD</option>
+<option value="15">1000-2000 USD</option>
+<option value="10">500-1000 USD</option>
+<option value="5">-500 USD</option>
+</select>
 
-  <label>Historial de viajes:</label><br>
-  <select id="travel">
-    <option value="15">EEUU / Europa</option>
-    <option value="10">Otros países</option>
-    <option value="5">Latam</option>
-    <option value="2">Ninguno</option>
-  </select><br><br>
+<label>Ahorros</label>
+<select id="savings">
+<option value="20">+10000 USD</option>
+<option value="15">5000-10000 USD</option>
+<option value="10">2000-5000 USD</option>
+<option value="5">-2000 USD</option>
+</select>
 
-  <label>¿Has tenido overstays?</label><br>
-  <select id="overstay">
-    <option value="10">Nunca</option>
-    <option value="5">Una vez</option>
-    <option value="0">Varias veces</option>
-  </select><br><br>
+<label>Historial de viajes</label>
+<select id="travel">
+<option value="15">EEUU / Europa</option>
+<option value="10">Otros países</option>
+<option value="5">Latam</option>
+<option value="2">Ninguno</option>
+</select>
 
-  <label>Propósito del viaje:</label><br>
-  <select id="purpose">
-    <option value="15">Claro</option>
-    <option value="10">General</option>
-    <option value="5">Débil</option>
-  </select><br><br>
+<label>Overstay</label>
+<select id="overstay">
+<option value="10">Nunca</option>
+<option value="5">Una vez</option>
+<option value="0">Varias veces</option>
+</select>
 
-  <label>Plan de viaje:</label><br>
-  <select id="plan">
-    <option value="15">Definido</option>
-    <option value="10">Parcial</option>
-    <option value="5">Ninguno</option>
-  </select><br><br>
+<label>Plan de viaje</label>
+<select id="plan">
+<option value="15">Definido</option>
+<option value="10">Parcial</option>
+<option value="5">Ninguno</option>
+</select>
 
-  <label>Vínculos familiares:</label><br>
-  <select id="family">
-    <option value="10">Dependientes</option>
-    <option value="7">Familia cercana</option>
-    <option value="2">Ninguno</option>
-  </select><br><br>
+<button onclick="calculate()">Calcular mi resultado</button>
 
-  <label>Propiedades o activos:</label><br>
-  <select id="assets">
-    <option value="5">Sí</option>
-    <option value="0">No</option>
-  </select><br><br>
+<div class="thermometer" id="thermo" style="display:none;">
+  <div class="bar-bg">
+    <div class="bar-fill" id="bar"></div>
+  </div>
+  <div class="result-text" id="resultText"></div>
+</div>
 
-  <button type="button" onclick="calculate()">Calcular</button>
-
-</form>
-
-<hr>
-
-<h3 id="result"></h3>
-<div id="diagnosis"></div>
 <div id="cta"></div>
+
+</div>
 
 <script>
 
-function generateDiagnosis(data) {
-  let issues = [];
-  let recommendations = [];
-
-  if (data.job <= 10) {
-    issues.push("Falta de estabilidad laboral");
-    recommendations.push("Conseguir o demostrar ingresos estables");
-  }
-
-  if (data.savings <= 10) {
-    issues.push("Fondos insuficientes");
-    recommendations.push("Aumentar ahorros y justificar origen del dinero");
-  }
-
-  if (data.travel <= 5) {
-    issues.push("Poco historial de viajes");
-    recommendations.push("Viajar a otros países antes de aplicar");
-  }
-
-  if (data.plan <= 10) {
-    issues.push("Plan de viaje débil");
-    recommendations.push("Crear un itinerario claro");
-  }
-
-  if (data.overstay < 10) {
-    issues.push("Historial migratorio negativo");
-    recommendations.push("Explicar esta situación correctamente");
-  }
-
-  return { issues, recommendations };
-}
-
 function calculate() {
-  let data = {
-    job: parseInt(document.getElementById("job").value),
-    income: parseInt(document.getElementById("income").value),
-    savings: parseInt(document.getElementById("savings").value),
-    travel: parseInt(document.getElementById("travel").value),
-    overstay: parseInt(document.getElementById("overstay").value),
-    purpose: parseInt(document.getElementById("purpose").value),
-    plan: parseInt(document.getElementById("plan").value),
-    family: parseInt(document.getElementById("family").value),
-    assets: parseInt(document.getElementById("assets").value)
-  };
-
-  let score = Object.values(data).reduce((a, b) => a + b, 0);
-
-  if (data.job <= 10 && data.savings <= 10) score -= 15;
-  if (data.travel <= 5 && data.job <= 10) score -= 10;
+  let score =
+    +job.value +
+    +income.value +
+    +savings.value +
+    +travel.value +
+    +overstay.value +
+    +plan.value;
 
   score = Math.max(0, Math.min(score, 100));
 
-  let resultText = "";
-  if (score >= 80) resultText = "Alta probabilidad de aprobación ✅";
-  else if (score >= 65) resultText = "Buena probabilidad 👍";
-  else if (score >= 50) resultText = "Riesgo medio ⚠️";
-  else resultText = "Alta probabilidad de rechazo ❌";
+  let colorClass = "low";
+  let text = "";
 
-  let diagnosis = generateDiagnosis(data);
+  if (score >= 70) {
+    colorClass = "high";
+    text = "Alta probabilidad de aprobación";
+  } else if (score >= 50) {
+    colorClass = "mid";
+    text = "Probabilidad media (puedes mejorar)";
+  } else {
+    colorClass = "low";
+    text = "Alto riesgo de rechazo";
+  }
 
-  displayResult(score, resultText, diagnosis);
-}
+  document.getElementById("thermo").style.display = "block";
 
-function displayResult(score, resultText, diagnosis) {
+  let bar = document.getElementById("bar");
+  bar.className = "bar-fill " + colorClass;
+  
+  setTimeout(() => {
+    bar.style.width = score + "%";
+  }, 100);
 
-  let issuesText = diagnosis.issues.join(", ");
+  document.getElementById("resultText").innerHTML =
+    `${score}/100 – ${text}`;
 
-  document.getElementById("result").innerHTML = `
-    <h2>📊 Resultado:</h2>
-    <p><strong>${score}/100</strong> - ${resultText}</p>
-  `;
+  let message = `Hola, hice la calculadora y obtuve ${score}/100. ¿Cómo puedo mejorar mi caso?`;
 
-  document.getElementById("diagnosis").innerHTML = `
-    <h4>⚠️ Factores detectados:</h4>
-    <p>${issuesText || "Perfil sólido"}</p>
-  `;
+  document.getElementById("cta").innerHTML = `
+    <div class="cta">
+      <h3>¿Qué quieres hacer ahora?</h3>
 
-  // MENSAJE WHATSAPP
-  let message = `Hola, acabo de hacer la calculadora de visa 🇨🇦.%0A%0AMi resultado fue: ${score}/100.%0A${resultText}.%0A%0AFactores: ${issuesText}.%0A%0AMe gustaría saber cómo mejorar mi caso.`;
-
-  let whatsappLink = `https://wa.me/14312763929?text=${message}`;
-
-  let ctaHTML = `
-    <div style="margin-top:20px; padding:20px; border:1px solid #ccc; border-radius:10px;">
-      
-      <h3>💬 ¿Quieres que revise tu caso personalmente?</h3>
-      <p>Envíame tu resultado por WhatsApp y te digo qué haría en tu situación.</p>
-
-      <a href="${whatsappLink}" target="_blank"
-        style="display:block; margin-bottom:15px; padding:12px; background:#25D366; color:white; text-align:center; text-decoration:none; border-radius:5px;">
-        👉 Enviar resultado por WhatsApp
+      <a class="whatsapp" href="https://wa.me/14312763929?text=${message}" target="_blank">
+        💬 Enviar resultado por WhatsApp
       </a>
 
-      <hr>
-
-      <p><strong>🚀 Consulta estratégica = PLAN</strong></p>
-      <a href="https://calendly.com/angelicapotescanada/strategic-consultation-with-angelica-potes" target="_blank">
-        Agendar aquí
+      <a class="plan" href="https://calendly.com/angelicapotescanada/strategic-consultation-with-angelica-potes" target="_blank">
+        🚀 Consulta estratégica (PLAN)
       </a>
 
-      <p><strong>⚡ Consulta corta = CLARIDAD</strong></p>
-      <a href="https://calendly.com/angelicapotescanada/short_consultation" target="_blank">
-        Agendar aquí
+      <a class="clarity" href="https://calendly.com/angelicapotescanada/short_consultation" target="_blank">
+        ⚡ Consulta corta (CLARIDAD)
       </a>
-
     </div>
   `;
-
-  document.getElementById("cta").innerHTML = ctaHTML;
 }
 
 </script>
