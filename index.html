@@ -7,7 +7,8 @@
 <style>
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f5f7fb;
+  background: url('https://images.unsplash.com/photo-1508264165352-258a6a1b3c41') no-repeat center center fixed;
+  background-size: cover;
   margin: 0;
   padding: 20px;
 }
@@ -15,10 +16,19 @@ body {
 .container {
   max-width: 600px;
   margin: auto;
-  background: white;
+  background: rgba(255,255,255,0.95);
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.logo img {
+  max-width: 180px;
 }
 
 h1 {
@@ -113,7 +123,12 @@ button {
 
 <div class="container">
 
-<h1>¿Te aprobarían la visa a Canadá? 🇨🇦</h1>
+<!-- 🔥 LOGO AQUÍ -->
+<div class="logo">
+  <img src="firma-digital.png" alt="Angelica Potes Canada">
+</div>
+
+<h1>¿Te aprobarían la visa de turista a Canadá? 🇨🇦</h1>
 <p class="subtitle">Descúbrelo en 2 minutos antes de aplicar</p>
 
 <label>Situación laboral</label>
@@ -215,14 +230,17 @@ function calculate() {
   document.getElementById("resultText").innerHTML =
     `${score}/100 – ${text}`;
 
-  let message = `Hola, hice la calculadora y obtuve ${score}/100. ¿Cómo puedo mejorar mi caso?`;
+  let message = `Hola, hice la calculadora de visa de turista y obtuve ${score}/100. ¿Cómo puedo mejorar mi caso?`;
 
   document.getElementById("cta").innerHTML = `
     <div class="cta">
-      <h3>¿Qué quieres hacer ahora?</h3>
+
+      <h3>🚨 Antes de aplicar, hay algo que debes saber</h3>
+      <p>La mayoría de personas aplica con errores que pueden llevar a rechazo.</p>
+      <p><strong>Tengo algunos tips específicos que pueden ayudarte a mejorar tu score antes de aplicar.</strong></p>
 
       <a class="whatsapp" href="https://wa.me/14312763929?text=${message}" target="_blank">
-        💬 Enviar resultado por WhatsApp
+        💬 Enviar mi resultado por WhatsApp
       </a>
 
       <a class="plan" href="https://calendly.com/angelicapotescanada/strategic-consultation-with-angelica-potes" target="_blank">
@@ -232,6 +250,7 @@ function calculate() {
       <a class="clarity" href="https://calendly.com/angelicapotescanada/short_consultation" target="_blank">
         ⚡ Consulta corta (CLARIDAD)
       </a>
+
     </div>
   `;
 }
